@@ -1,11 +1,29 @@
 cmake_minimum_required(VERSION 3.10)
  
+
+#############################
+# Easy Math
+#############################
 project(easymath)
+
+add_library(easymath INTERFACE)
+
+target_include_directories(easymath INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+
+
+#############################
+# Tests
+#############################
+
+enable_testing()
 
 # Locate GTest
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
  
-# Link runTests with what we want to test and the GTest and pthread library
-add_executable(easymath hello.cpp)
-target_link_libraries(easymath ${GTEST_LIBRARIES} pthread)
+include(CTest)
+
+project(easymathtest)
+add_executable(easymathtest ${CMAKE_CURRENT_SOURCE_DIR}/tests/EasyMath.cpp)
+target_link_libraries(easymathtest easymath ${GTEST_LIBRARIES} pthread)
+add_test(NAME easymathtest COMMAND easymathtest)

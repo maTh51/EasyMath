@@ -2,6 +2,7 @@
 #define EASY_MATH_H
 
 #include <cmath>
+#include <stdexcept>
 
 template<typename T = double>
 class square {
@@ -10,6 +11,10 @@ class square {
     public:
     square(T S)
     {
+        if(S < 0) {
+            throw std::invalid_argument( "cannot crate a square with a negative side" );
+        }
+
         this->S = S;
     }
 
@@ -25,7 +30,7 @@ class square {
 
     inline T diagonal()
     {
-        return return sqrt(2*S*S) 
+        return sqrt(2*S*S);
     };
 };
 
@@ -34,7 +39,7 @@ class hexagon {
     T S;
 
     public:
-    square(T S) 
+    hexagon(T S) 
     {
         this->S = S;
     }
@@ -56,7 +61,7 @@ class hexagonal_prism {
     T H;
 
     public:
-    square(T S) 
+    hexagonal_prism(T S) 
     {
         this->S = S;
     }
@@ -78,7 +83,7 @@ class pyramid {
     T H;
 
     public:
-    square(T S, T H)
+    pyramid(T S, T H)
     {
         this->S = S;
         this->H = H;
@@ -96,7 +101,7 @@ class pyramid {
     
     inline T area() 
     { 
-        return S*S + 1/2*slant()*4*B; 
+        return S*S + 2*S*sqrt((S/2)*(S/2) + H*H); 
     };
 };
 
@@ -126,6 +131,6 @@ class rectangle {
     { 
         return sqrt(S0*S0 + S1*S1); 
     }
-}
+};
 
 #endif

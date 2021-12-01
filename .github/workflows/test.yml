@@ -12,8 +12,6 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: install cppunit
-      run: sudo apt install -y libcppunit-dev
     - name: install gtest
       run: sudo apt-get install libgtest-dev
     - name: install cmake
@@ -30,5 +28,6 @@ jobs:
     - name: Run cmake on project
       run: mkdir build && cd build && cmake .. && make
     - name: run tests
-      run: ./build/easymath
+      run: cd build && ctest
+      
 
