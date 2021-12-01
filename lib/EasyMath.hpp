@@ -125,7 +125,7 @@ class rectangle {
     public:
     rectangle(T A, T B) 
     {
-        if(S < 0) {
+        if(S0 < 0) {
             throw std::invalid_argument( "cannot crate a square with a negative side" );
         }
         
