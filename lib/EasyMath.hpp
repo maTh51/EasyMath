@@ -41,6 +41,10 @@ class hexagon {
     public:
     hexagon(T S) 
     {
+        if(S < 0) {
+            throw std::invalid_argument( "cannot crate a square with a negative side" );
+        }
+
         this->S = S;
     }
     
@@ -63,6 +67,10 @@ class hexagonal_prism {
     public:
     hexagonal_prism(T S) 
     {
+        if(S < 0) {
+            throw std::invalid_argument( "cannot crate a square with a negative side" );
+        }
+
         this->S = S;
     }
 
@@ -85,6 +93,10 @@ class pyramid {
     public:
     pyramid(T S, T H)
     {
+        if(S < 0) {
+            throw std::invalid_argument( "cannot crate a square with a negative side" );
+        }
+        
         this->S = S;
         this->H = H;
     }
@@ -113,6 +125,10 @@ class rectangle {
     public:
     rectangle(T A, T B) 
     {
+        if(S < 0) {
+            throw std::invalid_argument( "cannot crate a square with a negative side" );
+        }
+        
         S0 = A;
         S1 = B;
     }
