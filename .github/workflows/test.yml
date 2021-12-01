@@ -14,9 +14,21 @@ jobs:
     - uses: actions/checkout@v2
     - name: install cppunit
       run: sudo apt install -y libcppunit-dev
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make test
-      run: make test
+    - name: install gtest
+      run: sudo apt-get install libgtest-dev
+    - name: install cmake
+      run: sudo apt-get install cmake 
+    - name: compile gtest
+      working-directory: /usr/src/gtest
+      run: sudo cmake CMakeLists.txt
+    - name: run make on gtest  
+      working-directory: /usr/src/gtest
+      run: sudo make 
+    - name: copy gtest lib files 
+      working-directory: /usr/src/gtest/lib
+      run: sudo cp *.a /usr/lib
+    - name: Run cmake on project
+      run: mkdir build && cd build && cmake .. && make
+    - name: run tests
+      run: ./build/easymath
+
