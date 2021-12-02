@@ -7,7 +7,7 @@ TEST(CircleTest, CircleNonNegativeRadius) {
             Circle<double> circle = Circle<double>(-1);
         }
         catch(const std::invalid_argument& e) {
-            EXPECT_STREQ("cannot crate a circle with a negative radius", e.what());
+            EXPECT_STREQ("cannot crate a circle with a non-positive radius", e.what());
             throw;
         }
     }, std::invalid_argument);

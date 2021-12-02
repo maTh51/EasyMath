@@ -12,8 +12,8 @@ private:
 
 public:
     Circle(T radius) {
-        if(radius < 0) {
-            throw std::invalid_argument("cannot crate a circle with a negative radius");
+        if(radius <= 0) {
+            throw std::invalid_argument("cannot crate a circle with a non-positive radius");
         }
         this->radius = radius;
     }
