@@ -3,6 +3,7 @@
 #include "Circle.cpp"
 #include "Trapeze.cpp"
 #include "Pentagon.cpp"
+#include "PentagonalPrism.cpp"
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
