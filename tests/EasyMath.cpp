@@ -4,6 +4,7 @@
 #include "Trapeze.cpp"
 #include "Pentagon.cpp"
 #include "PentagonalPrism.cpp"
+#include "Cylinder.cpp"
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);

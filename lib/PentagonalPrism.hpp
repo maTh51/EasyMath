@@ -25,8 +25,8 @@ public:
     }
 
     T area() {
-        double bases = 2 * this->base->area();
-        double sides = 5 * this->side * this->high;
+        T bases = 2 * this->base->area();
+        T sides = 5 * this->side * this->high;
         return bases + sides;
     }
 
