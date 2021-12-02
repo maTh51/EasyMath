@@ -7,7 +7,6 @@
 #include "Cylinder.cpp"
 #include "Sphere.cpp"
 
-
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
 
