@@ -42,7 +42,7 @@ class hexagon {
     hexagon(T S) 
     {
         if(S < 0) {
-            throw std::invalid_argument( "cannot crate a square with a negative side" );
+            throw std::invalid_argument( "cannot crate a hexagon with a negative side" );
         }
 
         this->S = S;
@@ -57,6 +57,11 @@ class hexagon {
     { 
         return 6*S;
     };
+
+    inline T diagonal() 
+    { 
+        return 2*S;
+    };
 };
 
 template<typename T = double>
@@ -65,13 +70,17 @@ class hexagonal_prism {
     T H;
 
     public:
-    hexagonal_prism(T S) 
+    hexagonal_prism(T S, T H) 
     {
         if(S < 0) {
-            throw std::invalid_argument( "cannot crate a square with a negative side" );
+            throw std::invalid_argument( "cannot crate a hexagonal prism with a negative side" );
         }
-
+    
+        if(H < 0) {
+            throw std::invalid_argument( "cannot crate a hexagonal prism with a negative heigth" );
+        }
         this->S = S;
+        this->H = H;
     }
 
     inline T volume() 
@@ -94,9 +103,11 @@ class pyramid {
     pyramid(T S, T H)
     {
         if(S < 0) {
-            throw std::invalid_argument( "cannot crate a square with a negative side" );
+            throw std::invalid_argument( "cannot crate a pyramid with a negative side" );
         }
-        
+        if(H < 0) {
+            throw std::invalid_argument( "cannot crate a pyramid with a negative heigth" );
+        }
         this->S = S;
         this->H = H;
     }
@@ -104,11 +115,6 @@ class pyramid {
     inline T volume() 
     {
         return (S*S*H)/3.0; 
-    }
-    
-    inline T slant() 
-    { 
-        return sqrt(H*H + (S/2)*(S/2)); 
     }
     
     inline T area() 
@@ -125,8 +131,11 @@ class rectangle {
     public:
     rectangle(T A, T B) 
     {
-        if(S0 < 0) {
-            throw std::invalid_argument( "cannot crate a square with a negative side" );
+        if(A < 0) {
+            throw std::invalid_argument( "cannot crate a rectangle with a negative side" );
+        }
+        if(B < 0) {
+            throw std::invalid_argument( "cannot crate a rectangle with a negative heigth" );
         }
         
         S0 = A;
