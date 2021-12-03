@@ -1,6 +1,12 @@
 #include <gtest/gtest.h>
 #include "EasyMath.hpp"
 
+#include "Circle.cpp"
+#include "Trapeze.cpp"
+#include "Pentagon.cpp"
+#include "PentagonalPrism.cpp"
+#include "Cylinder.cpp"
+#include "Sphere.cpp"
 
 TEST(EasyMathSquareTest, SquareNoNegativeSide) {
     EXPECT_THROW({

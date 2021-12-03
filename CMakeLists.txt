@@ -24,6 +24,8 @@ include_directories(${GTEST_INCLUDE_DIRS})
 include(CTest)
 
 project(easymathtest)
+
 add_executable(easymathtest ${CMAKE_CURRENT_SOURCE_DIR}/tests/EasyMath.cpp)
+
 target_link_libraries(easymathtest easymath ${GTEST_LIBRARIES} pthread)
 add_test(NAME easymathtest COMMAND easymathtest)
