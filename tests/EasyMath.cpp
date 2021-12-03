@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include "EasyMath.hpp"
 
 #include "Circle.cpp"
 #include "Trapeze.cpp"
