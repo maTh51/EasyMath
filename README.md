@@ -7,4 +7,4 @@ Trabalho prático 1 da disciplina de Testes de Software - Ciência da Computaç�
 Luiz Felipe, Marcos Vinicius, Matheus Pimenta
 
 # TO DO
-Paralelogramo, Prisma triangular, Paralelepipedo
+Paralelepipedo
