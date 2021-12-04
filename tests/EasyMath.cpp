@@ -4,7 +4,7 @@
 #include "Cube.cpp"
 #include "TriangularPrism.cpp"
 #include "Parallelogram.cpp"
-#include "RectangularPrallelipiped.cpp"
+#include "RectangularParallelipiped.cpp"
 #include "Circle.cpp"
 #include "Trapeze.cpp"
 #include "Pentagon.cpp"

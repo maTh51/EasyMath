@@ -1,13 +1,13 @@
 #include <gtest/gtest.h>
 #include "Parallelogram.hpp"
 
-TEST(ParallelogramTest, ParallelogramNonNegativeRadius) {
+TEST(ParallelogramTest, ParallelogramNonNegativeDimensions) {
     EXPECT_THROW({
         try {
             Parallelogram<double> parallelogram = Parallelogram<double>(-1,8,9);
         }
         catch(const std::invalid_argument& e) {
-            EXPECT_STREQ("cannot create a Parallelogram with one or more non-positive sides or height", e.what());
+            EXPECT_STREQ("cannot create a parallelogram with non-positive dimensions", e.what());
             throw;
         }
     }, std::invalid_argument);
@@ -23,7 +23,7 @@ TEST(ParallelogramTest, ParallelogramArea) {
     ASSERT_EQ(32.0, parallelogram.area());
 }
 
-TEST(ParallelogramTest, ParallelogramHeightRelativeToSide) {
+TEST(ParallelogramTest, ParallelogramOtherHeight) {
     Parallelogram<double> parallelogram = Parallelogram<double>(5,6,3);
     ASSERT_NEAR(2.5, parallelogram.otherHeight(), 0.0000001);
 } 

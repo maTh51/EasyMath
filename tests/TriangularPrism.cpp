@@ -1,13 +1,13 @@
 #include <gtest/gtest.h>
 #include "TriangularPrism.hpp"
 
-TEST(TriangularPrismTest, TriangularPrismNonNegativeRadius) {
+TEST(TriangularPrismTest, TriangularPrismNonNegativeDimensions) {
     EXPECT_THROW({
         try {
             TriangularPrism<double> triangularPrism = TriangularPrism<double>(15,-5,6);
         }
         catch(const std::invalid_argument& e) {
-            EXPECT_STREQ("cannot create a Triangular Prism a non-positive lenght, width or height", e.what());
+            EXPECT_STREQ("cannot create a Triangular Prism a non-positive length, width or height", e.what());
             throw;
         }
     }, std::invalid_argument);

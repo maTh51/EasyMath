@@ -1,13 +1,13 @@
 #include <gtest/gtest.h>
 #include "Cube.hpp"
 
-TEST(CubeTest, CubeNonNegativeRadius) {
+TEST(CubeTest, CubeNonNegativeEdge) {
     EXPECT_THROW({
         try {
             Cube<double> cube = Cube<double>(-1);
         }
         catch(const std::invalid_argument& e) {
-            EXPECT_STREQ("cannot create a cube with a non-positive side", e.what());
+            EXPECT_STREQ("cannot create a cube with non-positive edges", e.what());
             throw;
         }
     }, std::invalid_argument);

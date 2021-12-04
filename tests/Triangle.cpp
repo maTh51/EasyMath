@@ -1,13 +1,13 @@
 #include <gtest/gtest.h>
 #include "Triangle.hpp"
 
-TEST(TriangleTest, TriangleNonNegativeRadius) {
+TEST(TriangleTest, TriangleNonNegativeDimensions) {
     EXPECT_THROW({
         try {
-            Triangle<double> triangle = Triangle<double>(-1,8,9);
+            Triangle<double> triangle = Triangle<double>(3,-8,11);
         }
         catch(const std::invalid_argument& e) {
-            EXPECT_STREQ("cannot create a triangle with one or more non-positive side", e.what());
+            EXPECT_STREQ("cannot create a triangle with non-positive dimensions", e.what());
             throw;
         }
     }, std::invalid_argument);
@@ -37,7 +37,7 @@ TEST(TriangleTest, TriangleHeightRelativeToSideExceptions) {
             triangle.heightRelativeToSide(0.5);
         }
         catch(const std::invalid_argument& e) {
-            EXPECT_STREQ("cannot calculate relative are with invalide side. Only accept 1, 2 or 3", e.what());
+            EXPECT_STREQ("cannot calculate the relative height of an invalid side. Input only 1, 2 or 3", e.what());
             throw;
         }
     }, std::invalid_argument);
@@ -46,16 +46,7 @@ TEST(TriangleTest, TriangleHeightRelativeToSideExceptions) {
             triangle.heightRelativeToSide(4);
         }
         catch(const std::invalid_argument& e) {
-            EXPECT_STREQ("cannot calculate relative are with invalide side. Only accept 1, 2 or 3", e.what());
-            throw;
-        }
-    }, std::invalid_argument);
-    EXPECT_THROW({
-        try {
-            triangle.heightRelativeToSide(2.5);
-        }
-        catch(const std::invalid_argument& e) {
-            EXPECT_STREQ("cannot calculate relative are with invalide side. Only accept 1, 2 or 3", e.what());
+            EXPECT_STREQ("cannot calculate the relative height of an invalid side. Input only 1, 2 or 3", e.what());
             throw;
         }
     }, std::invalid_argument);

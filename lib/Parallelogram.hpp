@@ -8,30 +8,30 @@ template<typename T = double>
 
 class Parallelogram {
 private:
-    T SB, SO, H;
+    T _base, _lateral, _height;
 
 public:
-    Parallelogram(T sb, T so, T h) {
-        if(sb <= 0 || so <= 0 || h <= 0) {
-            throw std::invalid_argument("cannot create a Parallelogram with one or more non-positive sides or height");
+    Parallelogram(T base, T lateral, T height) {
+        if(base <= 0 || lateral <= 0 || height <= 0) {
+            throw std::invalid_argument("cannot create a parallelogram with non-positive dimensions");
         }
 
-        this->SB = sb;
-        this->SO = so;
-        this->H = h;
+        this->_base = base;
+        this->_lateral = lateral;
+        this->_height = height;
     }
 
     T perimeter() {
-        return 2*(this->SB + this->SO);
+        return 2*(this->_base + this->_lateral);
     }
 
     T area() {
-        return this->SB*this->H;
+        return this->_base*this->_height;
     }
     
     T otherHeight() {
         T area = this->area();
-        return area/this->SO; 
+        return area/this->_lateral; 
     }
 
 

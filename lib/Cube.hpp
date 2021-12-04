@@ -8,27 +8,27 @@ template<typename T = double>
 
 class Cube {
 private:
-    T S;
+    T _edge;
 
 public:
-    Cube(T s) {
-        if(s <= 0) {
-            throw std::invalid_argument("cannot create a cube with a non-positive side");
+    Cube(T edge) {
+        if(edge <= 0) {
+            throw std::invalid_argument("cannot create a cube with non-positive edges");
         }
 
-        this->S = s;
+        this->_edge = edge;
     }
 
     T perimeter() {
-        return 12*this->S;
+        return 12*this->_edge;
     }
 
     T area() {
-        return this->S * this->S;
+        return this->_edge * this->_edge;
     }
 
     T volume() {
-        return this->S * this->S * this->S;
+        return this->_edge * this->_edge * this->_edge;
     }
 
 };

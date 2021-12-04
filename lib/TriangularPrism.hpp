@@ -8,29 +8,29 @@ template<typename T = double>
 
 class TriangularPrism {
 private:
-    T L, W, H;
+    T _length, _width, _height;
 
 public:
-    TriangularPrism(T l, T w, T h) {
-        if(l <= 0 || w <= 0 || h <= 0) {
-            throw std::invalid_argument("cannot create a Triangular Prism a non-positive lenght, width or height");
+    TriangularPrism(T length, T width, T height) {
+        if(length <= 0 || width <= 0 || height <= 0) {
+            throw std::invalid_argument("cannot create a Triangular Prism a non-positive length, width or height");
         }
 
-        this->L = l;
-        this->W = w;
-        this->H = h;
+        this->_length = length;
+        this->_width = width;
+        this->_height = height;
     }
 
     T rectangularBaseArea() {
-        return this->W*this->L;
+        return this->_width*this->_length;
     }
 
     T triangularBaseArea() {
-        return (this->W*this->H)/2;
+        return (this->_width*this->_height)/2;
     }
     
     T volume() {
-        return (this->L*this->W*this->H)/2;
+        return (this->_length*this->_width*this->_height)/2;
     }
 };
 
