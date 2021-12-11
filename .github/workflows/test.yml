@@ -29,6 +29,22 @@ jobs:
       run: mkdir build && cd build && cmake .. && make
     - name: run tests
       run: cd build && ctest
+
+    - name: install lcov
+      run: sudo apt-get install lcov
+    - name: create coverage folder
+      run: mkdir coverage
+    - name: generate cov executable
+      run: g++ -o coverage/cov -fprofile-arcs -ftest-coverage tests/EasyMath.cpp -lgtest -Ilib
+    - name: run coverage executable
+      run: ./coverage/cov
+    - name: create folders
+      run: cd coverage && mkdir reports && cd reports
+    - name: run gcov
+      run: gcov ../../tests/EasyMath.cpp -o ../cov-EasyMath.gc
+    - name: run lcov
+      run: lcov -d .. -c --directory . --output-file coverage.info
+
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
       with:
