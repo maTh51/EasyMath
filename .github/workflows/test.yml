@@ -45,6 +45,10 @@ jobs:
 
     - name: create folders
       run: cd coverage && mkdir reports && cd reports
+
+    - name: tree
+      run: ls && ls ..
+
     - name: run gcov
       run: gcov ../../tests/EasyMath.cpp -o ../EasyMath.gc
     - name: run lcov
