@@ -30,6 +30,9 @@ jobs:
     - name: run tests
       run: cd build && ctest
 
+    - name: tree
+      run: ls && ls .. && ls ...
+
     - name: install lcov
       run: sudo apt-get install lcov
     - name: create coverage folder
