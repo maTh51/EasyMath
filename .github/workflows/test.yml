@@ -44,15 +44,12 @@ jobs:
       run: mv EasyMath.gcda coverage && mv EasyMath.gcno coverage
 
     - name: create folders
-      run: cd coverage && mkdir reports && cd reports
-
-    - name: tree
-      run: ls coverage 
+      run: cd coverage && mkdir reports
 
     - name: run gcov
-      run: gcov ../../tests/EasyMath.cpp -o ../EasyMath.gc
+      run: cd coverage/reports && gcov ../../tests/EasyMath.cpp -o ../EasyMath.gc
     - name: run lcov
-      run: lcov -d .. -c --directory . --output-file coverage.info
+      run: cd coverage/reports && lcov -d .. -c --directory . --output-file coverage.info
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
