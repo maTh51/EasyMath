@@ -47,7 +47,7 @@ jobs:
       run: cd coverage && mkdir reports && cd reports
 
     - name: tree
-      run: ls && ls ..
+      run: ls coverage 
 
     - name: run gcov
       run: gcov ../../tests/EasyMath.cpp -o ../EasyMath.gc
