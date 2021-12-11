@@ -17,6 +17,8 @@
 #include "Pyramid.cpp"
 #include "Rectangle.cpp"
 
+#include "Integration.cpp"
+
 int main(int argc, char **argv) {
 
     testing::InitGoogleTest(&argc, argv);
