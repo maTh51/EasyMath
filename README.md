@@ -45,3 +45,4 @@ cd reports
 gcov ../../tests/EasyMath.cpp -o ../cov-EasyMath.gc
 lcov -d .. -c --directory . --output-file coverage.info
 
+[![codecov](https://codecov.io/gh/maTh51/EasyMath/branch/main/graph/badge.svg?token=K7QRXSVW4Z)](https://codecov.io/gh/maTh51/EasyMath)
