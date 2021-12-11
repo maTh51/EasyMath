@@ -31,3 +31,17 @@ Para cada forma, temos funções que calculam algumas de suas propriedades. Como
 ### Tecnologias
 
 O sistema foi desenvolvido em C++ em um ambiente Linux e o framework de teste utilizado foi o GTest.
+
+
+
+## Codecov Steps
+
+mkdir coverage
+g++ -o coverage/cov -fprofile-arcs -ftest-coverage tests/EasyMath.cpp -lgtest -Ilib
+./coverage/cov
+cd coverage
+mkdir reports
+cd reports
+gcov ../../tests/EasyMath.cpp -o ../cov-EasyMath.gc
+lcov -d .. -c --directory . --output-file coverage.info
+
