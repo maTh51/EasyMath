@@ -39,14 +39,14 @@ jobs:
       run: g++ -o coverage/cov -fprofile-arcs -ftest-coverage tests/EasyMath.cpp -lgtest -lpthread -Ilib
     - name: run coverage executable
       run: ./coverage/cov
-   
-    - name: tree
-      run: ls && ls .. && ls ...
-    
+
+    - name: move files to correct folder
+      run: mv EasyMath.gcda coverage && mv EasyMath.gcno coverage
+
     - name: create folders
       run: cd coverage && mkdir reports && cd reports
     - name: run gcov
-      run: gcov ../../tests/EasyMath.cpp -o ../cov-EasyMath.gc
+      run: gcov ../../tests/EasyMath.cpp -o ../EasyMath.gc
     - name: run lcov
       run: lcov -d .. -c --directory . --output-file coverage.info
 
